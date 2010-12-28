@@ -179,7 +179,7 @@ function control_aboutme() {
 function control_aboutme_() {
    ?>
    <p>  
-     To configure this widget go to (Settings/About Me 3000) or click <a href='<?php echo get_bloginfo('wpurl')?>/wp-admin/options-general.php?page=About%20Me'>here</a>
+     To configure this widget go to (Settings/About Me 3000) or click <a href='<?php echo get_bloginfo('wpurl')?>/wp-admin/options-general.php?page=About-Me'>here</a>
    </p>
    <?php  
 }
