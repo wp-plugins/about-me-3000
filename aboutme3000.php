@@ -4,7 +4,7 @@ Plugin Name: About Me 3000
 Plugin URI: http://www.webdev3000.com/
 Description: Add an "About Me" widget to your sidebar.
 Author: Csaba Kissi
-Version: 1.66
+Version: 1.7
 Author URI: http://www.webdev3000..com/
 */
 
@@ -78,7 +78,7 @@ function control_aboutme() {
     }
     if($_POST['sent'] == 'Y') {    
         $options['title'] = strip_tags(stripslashes($_POST['aboutme-title']));
-        $options['text'] = strip_tags(stripslashes($_POST['aboutme-text']));
+        $options['text'] = strip_tags(stripslashes($_POST['aboutme-text']),'<p><a><b><strong><i><u>');
         $options['email'] = strip_tags(stripslashes($_POST['aboutme-email']));
         $options['promote_on'] = $_POST["aboutme-promote_on"];
         $options['frame_on'] = $_POST["aboutme-frame_on"];
