@@ -62,7 +62,7 @@ To configure:
 
 = 1.7 =
 
-* Following HTML tags are now allowed in text: [<p>, <a> ,<b> , <strong>, <i>, <u>]
+* Following HTML tags are now allowed in text: [p, a, b, strong, i, u]
 
 = 1.66 =
 
@@ -110,7 +110,7 @@ To configure:
 
 = 1.7 =
 
-* Following HTML tags are now allowed in text: [<p>, <a> ,<b> , <strong>, <i>, <u>]
+* Following HTML tags are now allowed in text: [p, a, b, strong, i, u]
 
 = 1.65 =
 
