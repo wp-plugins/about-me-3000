@@ -4,7 +4,7 @@ Plugin Name: About Me 3000
 Plugin URI: http://www.webdev3000.com/
 Description: Add an "About Me" widget to your sidebar.
 Author: Csaba Kissi
-Version: 1.75
+Version: 1.8
 Author URI: http://www.webdev3000..com/
 */
 
@@ -78,7 +78,8 @@ function control_aboutme() {
     }
     if($_POST['sent'] == 'Y') {    
         $options['title'] = strip_tags(stripslashes($_POST['aboutme-title']));
-        $options['text'] = strip_tags(stripslashes($_POST['aboutme-text']),'<p><a><b><strong><i><u><br>');
+        //$options['text'] = strip_tags(stripslashes($_POST['aboutme-text']),'<p><a><b><strong><i><u><br>');
+        $options['text'] = stripslashes($_POST['aboutme-text']);
         $options['email'] = strip_tags(stripslashes($_POST['aboutme-email']));
         $options['promote_on'] = $_POST["aboutme-promote_on"];
         $options['frame_on'] = $_POST["aboutme-frame_on"];
@@ -131,7 +132,47 @@ function control_aboutme() {
     </tr>
     <tr>
         <th><label for="aboutme-text">About you: </label></th>
-        <td><textarea class="widefat" id="aboutme-text" name="aboutme-text" rows="5"><?php echo $options['text'];?></textarea></td>
+        <?php
+	        if ( rich_edit_exists() && user_can_richedit() ) {
+                wp_tiny_mce(false, array(
+                    "editor_selector" => "aboutme-text", 
+                    "height" => 150,
+                )); }
+			?>
+
+			<script type="text/javascript" charset="utf-8">
+
+				function toggleEditor(id) {
+					if (!tinyMCE.get(id))
+						tinyMCE.execCommand('mceAddControl', false, id);
+					else
+						tinyMCE.execCommand('mceRemoveControl', false, id);
+				}
+
+				jQuery(document).ready(function($) {
+					var id = 'aboutme-text';
+					$('a.toggleVisual').click(
+						function() {
+							tinyMCE.execCommand('mceAddControl', false, id);
+						}
+					);
+					$('a.toggleHTML').click(
+						function() {
+							tinyMCE.execCommand('mceRemoveControl', false, id);
+						}
+					);
+				});
+			</script>
+        <td>
+            <p align="right">
+	            <a class="button toggleVisual"><?php _e('Visual', 'tinymce_signature'); ?></a>
+	            <a class="button toggleHTML"><?php _e('HTML', 'tinymce_signature'); ?></a>
+            </p>
+            <?php /*<textarea class="widefat" id="aboutme-text" name="aboutme-text" rows="5"><?php echo $options['text'];?></textarea>*/ ?>
+            <div class="postbox">
+            <textarea name="aboutme-text" class="aboutme-text" id="aboutme-text" style="width:inherit; height:150px;"><?php echo trim($options['text']); ?></textarea>
+            </divt>    
+        </td>
     </tr>
     <?php 
         for ($i=0;$i<count($arr_am_titles);$i++) {
@@ -192,5 +233,6 @@ function aboutme3000_admin_actions() {
 }
 
 add_action('plugins_loaded', 'init_aboutme3000');
-add_action('admin_menu', 'aboutme3000_admin_actions');  
+add_action('admin_menu', 'aboutme3000_admin_actions');
+
 ?>

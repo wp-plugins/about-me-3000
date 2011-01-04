@@ -4,7 +4,7 @@ Donate link: http://www.webdev3000.com/
 Tags: about me, widget, sidebar, biography, bio 
 Requires at least: 2.0.2 
 Tested up to: 3.0.4 
-Stable tag: 1.75
+Stable tag: 1.8
  
 Add an "About Me" widget to your sidebar. 
  
@@ -60,6 +60,10 @@ To configure:
 
 == Changelog ==
 
+= 1.8 =
+
+* WYSIWYG (visual) editor added for your "about me" text. More HTML tags are supported now
+
 = 1.75 =
 
 * Forced line breaks are now supported in text
@@ -111,6 +115,10 @@ To configure:
 * initial release 
 
 == Upgrade Notice ==
+
+= 1.8 =
+
+* WYSIWYG (visual) editor added for your "about me" text. More HTML tags are supported now
 
 = 1.75 =
 
