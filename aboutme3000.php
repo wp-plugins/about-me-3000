@@ -50,7 +50,7 @@ function widget_aboutme($args) {
         if($options[$tag_id.'_on']) echo "<a style='padding:2px' href='".$arr_am_urls[$i]."".$options[$tag_id]."'><img src='".get_bloginfo('wpurl')."/wp-content/plugins/about-me-3000/".$tag_id.".png' border='0'></a>";        
     }
     if(!empty($options['email']) && $options['email_on']) {
-        $arr_email = explode('@',$options['email']);
+        $arr_email = explode('@',strtolower($options['email']));
         ?>
 <script type="text/javascript">
 <!--
