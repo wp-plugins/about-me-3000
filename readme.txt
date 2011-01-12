@@ -4,7 +4,7 @@ Donate link: http://www.webdev3000.com/
 Tags: about me, widget, sidebar, biography, bio 
 Requires at least: 2.0.2 
 Tested up to: 3.0.4 
-Stable tag: 1.9
+Stable tag: 1.95
  
 Add an "About Me" widget to your sidebar. 
  
@@ -60,6 +60,10 @@ To configure:
  
 
 == Changelog ==
+
+= 1.95 =
+
+* Fixed capital characters issue for email (invisible gravatar)
 
 = 1.9 =
 
@@ -121,6 +125,10 @@ To configure:
 * initial release 
 
 == Upgrade Notice ==
+
+= 1.95 =
+
+* Fixed capital characters issue for email (invisible gravatar)
 
 = 1.9 =
 
