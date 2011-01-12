@@ -26,6 +26,7 @@ Currently, the following social networks are supported:
 * Technorati 
 * Twitter
 * YouTube
+* Tumblr
  
 You can even add your Feedburner ID, and the plugin will show the number of subscribers, next to a standard Feedburner image. 
  
