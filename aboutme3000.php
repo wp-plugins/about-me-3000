@@ -4,12 +4,12 @@ Plugin Name: About Me 3000
 Plugin URI: http://www.webdev3000.com/
 Description: Add an "About Me" widget to your sidebar.
 Author: Csaba Kissi
-Version: 1.8
-Author URI: http://www.webdev3000..com/
+Version: 1.9
+Author URI: http://www.webdev3000.com/
 */
 
-$arr_am_titles = Array("Facebook","Friendfeed","Feedburner","Delicious","MySpace","LinkedIn","StumbleUpon","Technorati","Twitter","YouTube");
-$arr_am_urls   = Array("http://www.facebook.com/profile.php?id=","http://friendfeed.com/","http://feeds2.feedburner.com/","http://delicious.com/","http://www.myspace.com/","http://www.linkedin.com/in/","http://YourID.stumbleupon.com","http://technorati.com/people/technorati/","http://twitter.com/","http://www.youtube.com/user/");
+$arr_am_titles = Array("Facebook","Friendfeed","Feedburner","Delicious","MySpace","LinkedIn","StumbleUpon","Technorati","Twitter","YouTube","Tumblr");
+$arr_am_urls   = Array("http://www.facebook.com/profile.php?id=","http://friendfeed.com/","http://feeds2.feedburner.com/","http://delicious.com/","http://www.myspace.com/","http://www.linkedin.com/in/","http://YourID.stumbleupon.com","http://technorati.com/people/technorati/","http://twitter.com/","http://www.youtube.com/user/","http://YourID.tumblr.com");
 
 // Shows widget
 function widget_aboutme($args) {
@@ -33,16 +33,20 @@ function widget_aboutme($args) {
                                 else $x = 80;
     if(!empty($options['grav_y']))   $y = $options['grav_y'];
                                 else $y = 80;                           
-    if(!empty($options['email']) && $options['grav_on']) echo "<img width=\"".$x."\" height=\"".$y."\" style='float:left;".(($options["frame_on"]=='1')?'border:1px solid #999;':'')." margin:5px;' src='http://www.gravatar.com/avatar/".md5($options['email'])."?s=80'>";
+    if(!empty($options['email']) && $options['grav_on']) echo "<img width=\"".$x."\" height=\"".$y."\" style='float:".(($options["alignright_on"]=='1')?'right':'left').";".(($options["frame_on"]=='1')?'border:1px solid #999;':'')." margin:5px;' src='http://www.gravatar.com/avatar/".md5($options['email'])."?s=80'>";
     echo $options['text'];
-    echo "<div style='clear:both'></div><div style='border-top: 1px solid #eee; padding-top:5px; position:relative; height:25px'><div style='left:0; position: absolute'>";
+    echo "<div style='clear:both'></div>";
+    echo "<div style='border-top: 1px solid #eee; padding-top:5px; position:relative; height:25px'>";
+    echo "<div style='left:0; position: absolute'>";
     for ($i=0;$i<count($arr_am_titles);$i++) {
         $tag_id = strtolower($arr_am_titles[$i]);
         if($i == 0 && $options['vanityurl_on']) echo "<a style='padding:2px' href='http://www.facebook.com/".$options[$tag_id]."'><img src='".get_bloginfo('wpurl')."/wp-content/plugins/about-me-3000/".$tag_id.".png' border='0'></a>";
         else
         if($i == 6 && $options[$tag_id.'_on'])  echo "<a style='padding:2px' href='http://".$options[$tag_id].".stumbleupon.com/'><img src='".get_bloginfo('wpurl')."/wp-content/plugins/about-me-3000/".$tag_id.".png' border='0'></a>";
+        else
+        if($i == 10 && $options[$tag_id.'_on'])  echo "<a style='padding:2px' href='http://".$options[$tag_id].".tumblr.com/'><img src='".get_bloginfo('wpurl')."/wp-content/plugins/about-me-3000/".$tag_id.".png' border='0'></a>";    
         else   
-        if($options[$tag_id.'_on']) echo "<a style='padding:2px' href='".$arr_am_urls[$i]."".$options[$tag_id]."'><img src='".get_bloginfo('wpurl')."/wp-content/plugins/about-me-3000/".$tag_id.".png' border='0'></a>";
+        if($options[$tag_id.'_on']) echo "<a style='padding:2px' href='".$arr_am_urls[$i]."".$options[$tag_id]."'><img src='".get_bloginfo('wpurl')."/wp-content/plugins/about-me-3000/".$tag_id.".png' border='0'></a>";        
     }
     if(!empty($options['email']) && $options['email_on']) {
         $arr_email = explode('@',$options['email']);
@@ -60,11 +64,11 @@ function widget_aboutme($args) {
 </script>
         <?php
         //echo "<a style='padding:2px' href='mailto:".$options['email']."'><img src='".get_bloginfo('url')."/wp-content/plugins/about-me-3000/email.png' border='0'></a>";
-    }    
+    }
     echo "</div>";
     if($options['counter_on']) echo "<div style='right:0; position: absolute;'><img src='http://feeds.feedburner.com/~fc/".$options['feedburner']."'></div>";
-    if($options['promote_on']) echo "<div style='left:0; position: absolute; padding-top:18px; padding-left:10px;'><small><a href=\"http://www.webdev3000.com\">Wordpress plugins</a></small></div>";
-    echo "</div></div>";
+    if($options['promote_on']) echo "<div style='left:0; position: absolute; margin-top:18px; padding-left:10px;'><small><a href=\"http://www.webdev3000.com\">Wordpress plugins</a></small></div>";
+    echo "</div></div>";    
     echo $after_widget;  
 }
 // Widget options
@@ -83,6 +87,7 @@ function control_aboutme() {
         $options['email'] = strip_tags(stripslashes($_POST['aboutme-email']));
         $options['promote_on'] = $_POST["aboutme-promote_on"];
         $options['frame_on'] = $_POST["aboutme-frame_on"];
+        $options['alignright_on'] = $_POST["aboutme-alignright_on"];
         $options['email_on'] = $_POST["aboutme-email_on"];
         $options['grav_on'] = $_POST["aboutme-grav_on"];
         $options['grav_x'] = $_POST["aboutme-grav_x"];
@@ -128,6 +133,8 @@ function control_aboutme() {
             <label for="aboutme-grav_on">Show gravatar</label><br />
             <input class="checkbox" type="checkbox" id="aboutme-frame_on" name="aboutme-frame_on" value="1" <?php echo (($options["frame_on"]=='1')?' checked=1':''); ?> />
             <label for="aboutme-frame_on">Show frame for gravatar</label><br />
+            <input class="checkbox" type="checkbox" id="aboutme-alignright_on" name="aboutme-alignright_on" value="1" <?php echo (($options["alignright_on"]=='1')?' checked=1':''); ?> />
+            <label for="aboutme-alignright_on">Align gravatar to right</label><br />
         </td>    
     </tr>
     <tr>
@@ -171,7 +178,7 @@ function control_aboutme() {
             <?php /*<textarea class="widefat" id="aboutme-text" name="aboutme-text" rows="5"><?php echo $options['text'];?></textarea>*/ ?>
             <div class="postbox">
             <textarea name="aboutme-text" class="aboutme-text" id="aboutme-text" style="width:inherit; height:150px;"><?php echo trim($options['text']); ?></textarea>
-            </divt>    
+            </divt>
         </td>
     </tr>
     <?php 
@@ -196,7 +203,7 @@ function control_aboutme() {
                       <label for="aboutme-counter_on">Show subscribers</label><br />
                   <? }
                   else 
-                  if($i == 6) {?>
+                  if($i == 6 || $i == 10)   {?>
                       <small>(<?php echo $arr_am_urls[$i]?>)</small><br />
                   <?}
                   else { ?>
