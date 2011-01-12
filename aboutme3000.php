@@ -4,9 +4,10 @@ Plugin Name: About Me 3000
 Plugin URI: http://www.webdev3000.com/
 Description: Add an "About Me" widget to your sidebar.
 Author: Csaba Kissi
-Version: 1.9
+Version: 1.95
 Author URI: http://www.webdev3000.com/
 */
+
 
 $arr_am_titles = Array("Facebook","Friendfeed","Feedburner","Delicious","MySpace","LinkedIn","StumbleUpon","Technorati","Twitter","YouTube","Tumblr");
 $arr_am_urls   = Array("http://www.facebook.com/profile.php?id=","http://friendfeed.com/","http://feeds2.feedburner.com/","http://delicious.com/","http://www.myspace.com/","http://www.linkedin.com/in/","http://YourID.stumbleupon.com","http://technorati.com/people/technorati/","http://twitter.com/","http://www.youtube.com/user/","http://YourID.tumblr.com");
@@ -84,7 +85,7 @@ function control_aboutme() {
         $options['title'] = strip_tags(stripslashes($_POST['aboutme-title']));
         //$options['text'] = strip_tags(stripslashes($_POST['aboutme-text']),'<p><a><b><strong><i><u><br>');
         $options['text'] = stripslashes($_POST['aboutme-text']);
-        $options['email'] = strip_tags(stripslashes($_POST['aboutme-email']));
+        $options['email'] = strip_tags(stripslashes(strtolower($_POST['aboutme-email'])));
         $options['promote_on'] = $_POST["aboutme-promote_on"];
         $options['frame_on'] = $_POST["aboutme-frame_on"];
         $options['alignright_on'] = $_POST["aboutme-alignright_on"];
