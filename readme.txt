@@ -3,8 +3,8 @@ Contributors: Csaba Kissi
 Donate link: http://www.webdev3000.com/ 
 Tags: about me, widget, sidebar, biography, bio 
 Requires at least: 2.0.2 
-Tested up to: 3.0.4 
-Stable tag: 1.95
+Tested up to: 3.1.2
+Stable tag: 1.96
  
 Add an "About Me" widget to your sidebar. 
  
@@ -27,7 +27,8 @@ Currently, the following social networks are supported:
 * Twitter
 * YouTube
 * Tumblr
- 
+* Xing
+
 You can even add your Feedburner ID, and the plugin will show the number of subscribers, next to a standard Feedburner image. 
  
  
@@ -60,6 +61,11 @@ To configure:
  
 
 == Changelog ==
+
+= 1.96 =
+
+* Added Xing profile.
+* Links now open in new window
 
 = 1.95 =
 
@@ -125,6 +131,11 @@ To configure:
 * initial release 
 
 == Upgrade Notice ==
+
+= 1.96 =
+
+* Added Xing profile.
+* Links now open in new window
 
 = 1.95 =
 

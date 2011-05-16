@@ -4,13 +4,13 @@ Plugin Name: About Me 3000
 Plugin URI: http://www.webdev3000.com/
 Description: Add an "About Me" widget to your sidebar.
 Author: Csaba Kissi
-Version: 1.95
+Version: 1.96
 Author URI: http://www.webdev3000.com/
 */
 
 
-$arr_am_titles = Array("Facebook","Friendfeed","Feedburner","Delicious","MySpace","LinkedIn","StumbleUpon","Technorati","Twitter","YouTube","Tumblr");
-$arr_am_urls   = Array("http://www.facebook.com/profile.php?id=","http://friendfeed.com/","http://feeds2.feedburner.com/","http://delicious.com/","http://www.myspace.com/","http://www.linkedin.com/in/","http://YourID.stumbleupon.com","http://technorati.com/people/technorati/","http://twitter.com/","http://www.youtube.com/user/","http://YourID.tumblr.com");
+$arr_am_titles = Array("Facebook","Friendfeed","Feedburner","Delicious","MySpace","LinkedIn","StumbleUpon","Technorati","Twitter","YouTube","Tumblr","Xing");
+$arr_am_urls   = Array("http://www.facebook.com/profile.php?id=","http://friendfeed.com/","http://feeds2.feedburner.com/","http://delicious.com/","http://www.myspace.com/","http://www.linkedin.com/in/","http://YourID.stumbleupon.com","http://technorati.com/people/technorati/","http://twitter.com/","http://www.youtube.com/user/","http://YourID.tumblr.com","http://www.xing.com/profile/");
 
 // Shows widget
 function widget_aboutme($args) {
@@ -41,13 +41,13 @@ function widget_aboutme($args) {
     echo "<div style='left:0; position: absolute'>";
     for ($i=0;$i<count($arr_am_titles);$i++) {
         $tag_id = strtolower($arr_am_titles[$i]);
-        if($i == 0 && $options['vanityurl_on']) echo "<a style='padding:2px' href='http://www.facebook.com/".$options[$tag_id]."'><img src='".get_bloginfo('wpurl')."/wp-content/plugins/about-me-3000/".$tag_id.".png' border='0'></a>";
+        if($i == 0 && $options['vanityurl_on']) echo "<a style='padding:2px' target='_blank' href='http://www.facebook.com/".$options[$tag_id]."'><img src='".get_bloginfo('wpurl')."/wp-content/plugins/about-me-3000/".$tag_id.".png' border='0'></a>";
         else
-        if($i == 6 && $options[$tag_id.'_on'])  echo "<a style='padding:2px' href='http://".$options[$tag_id].".stumbleupon.com/'><img src='".get_bloginfo('wpurl')."/wp-content/plugins/about-me-3000/".$tag_id.".png' border='0'></a>";
+        if($i == 6 && $options[$tag_id.'_on'])  echo "<a style='padding:2px' target='_blank' href='http://".$options[$tag_id].".stumbleupon.com/'><img src='".get_bloginfo('wpurl')."/wp-content/plugins/about-me-3000/".$tag_id.".png' border='0'></a>";
         else
-        if($i == 10 && $options[$tag_id.'_on'])  echo "<a style='padding:2px' href='http://".$options[$tag_id].".tumblr.com/'><img src='".get_bloginfo('wpurl')."/wp-content/plugins/about-me-3000/".$tag_id.".png' border='0'></a>";    
+        if($i == 10 && $options[$tag_id.'_on'])  echo "<a style='padding:2px' target='_blank' href='http://".$options[$tag_id].".tumblr.com/'><img src='".get_bloginfo('wpurl')."/wp-content/plugins/about-me-3000/".$tag_id.".png' border='0'></a>";
         else   
-        if($options[$tag_id.'_on']) echo "<a style='padding:2px' href='".$arr_am_urls[$i]."".$options[$tag_id]."'><img src='".get_bloginfo('wpurl')."/wp-content/plugins/about-me-3000/".$tag_id.".png' border='0'></a>";        
+        if($options[$tag_id.'_on']) echo "<a style='padding:2px' target='_blank' href='".$arr_am_urls[$i]."".$options[$tag_id]."'><img src='".get_bloginfo('wpurl')."/wp-content/plugins/about-me-3000/".$tag_id.".png' border='0'></a>";
     }
     if(!empty($options['email']) && $options['email_on']) {
         $arr_email = explode('@',strtolower($options['email']));
