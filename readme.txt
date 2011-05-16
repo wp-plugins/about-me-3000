@@ -4,7 +4,7 @@ Donate link: http://www.webdev3000.com/
 Tags: about me, widget, sidebar, biography, bio 
 Requires at least: 2.0.2 
 Tested up to: 3.1.2
-Stable tag: 1.96
+Stable tag: 1.97
  
 Add an "About Me" widget to your sidebar. 
  
@@ -17,7 +17,8 @@ Add your email and small description, and your gravatar will be shown next to th
 Currently, the following social networks are supported: 
  
 * Facebook 
-* Friendfeed 
+* Friendfeed
+* Flickr
 * Delicious
 * Feedburner
 * MySpace
@@ -61,6 +62,10 @@ To configure:
  
 
 == Changelog ==
+
+= 1.97 =
+
+* Added Flickr profile.
 
 = 1.96 =
 
@@ -132,7 +137,11 @@ To configure:
 
 == Upgrade Notice ==
 
-= 1.96 =
+= 1.97 =
+
+* Added Flickr profile.
+
+ = 1.96 =
 
 * Added Xing profile.
 * Links now open in new window
