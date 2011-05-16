@@ -4,7 +4,7 @@ Donate link: http://www.webdev3000.com/
 Tags: about me, widget, sidebar, biography, bio 
 Requires at least: 2.0.2 
 Tested up to: 3.1.2
-Stable tag: 1.97
+Stable tag: 1.98
  
 Add an "About Me" widget to your sidebar. 
  
@@ -23,7 +23,8 @@ Currently, the following social networks are supported:
 * Feedburner
 * MySpace
 * LinkedIn
-* StumbleUpon 
+* Posterous
+* StumbleUpon
 * Technorati 
 * Twitter
 * YouTube
@@ -63,7 +64,11 @@ To configure:
 
 == Changelog ==
 
-= 1.97 =
+= 1.98 =
+
+* Added Posterous profile.
+
+ = 1.97 =
 
 * Added Flickr profile.
 
@@ -136,6 +141,10 @@ To configure:
 * initial release 
 
 == Upgrade Notice ==
+
+= 1.98 =
+
+* Added Posterous profile.
 
 = 1.97 =
 
