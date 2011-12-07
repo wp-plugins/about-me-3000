@@ -4,7 +4,7 @@ Plugin Name: About Me 3000
 Plugin URI: http://www.webdev3000.com/
 Description: Add an "About Me" widget to your sidebar.
 Author: Csaba Kissi
-Version: 1.99
+Version: 2.0.0
 Author URI: http://www.webdev3000.com/
 */
 
@@ -107,9 +107,9 @@ function control_aboutme() {
     <?php /*<div id="message" class="updated"><p>Help us to improve our plugin. Your feedback will be appreciated. Feel free to post your <a href="http://www.webdev3000.com/about-me-3000-ver-1-6-released/#comment" target="_blank">comment</a></p></div>*/ ?>
     <div style="float:left;background-color:white;padding: 10px 10px 10px 10px;margin-right:15px;border: 1px solid #ddd;height:200px;">
 		<div style="width:450px;height:130px;">
-			<h3>Donate</h3>
+			<h3>Donate please...</h3>
 			<em>If you like this plugin and find it useful, help keep this plugin free and actively developed by clicking the <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A3M9YMDAMMH6U" target="_blank"><strong>donate</strong></a> button.
-                Help us to improve our plugin. Your feedback will be appreciated. Feel free to post your <a href="http://www.webdev3000.com/about-me-3000-ver-1-6-released/#comment" target="_blank">comment</a></em>
+                Help us to improve our plugin. Your feedback will be appreciated. Feel free to post your <a href="http://www.webdev3000.com/about-me-3000-ver-1-6-released/#comment" target="_blank"><strong>comment</strong></a></em>
 		</div>
 		<a target="_blank" title="Donate" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FBM9MC66FQYC2">
 		<img src="<?php echo plugins_url( 'donate.jpg', __FILE__ ); ?>" alt="Donate with Paypal">	</a>
