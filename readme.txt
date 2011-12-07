@@ -2,13 +2,13 @@
 Contributors: Csaba Kissi 
 Donate link: http://www.webdev3000.com/ 
 Tags: about me, widget, sidebar, biography, bio 
-Requires at least: 2.0.2 
+Requires at least: 2.0.2
 Tested up to: 3.1.2
 Stable tag: 2.0.0
  
 Add an "About Me" widget to your sidebar. 
- 
-== Description == 
+
+== Description ==
  
 This widget will show general information about you. 
 
