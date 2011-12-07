@@ -4,7 +4,7 @@ Plugin Name: About Me 3000
 Plugin URI: http://www.webdev3000.com/
 Description: Add an "About Me" widget to your sidebar.
 Author: Csaba Kissi
-Version: 1.98
+Version: 1.99
 Author URI: http://www.webdev3000.com/
 */
 
@@ -103,8 +103,18 @@ function control_aboutme() {
         update_option("widget_aboutme", $options);
     }    
     ?>
-    <div class="wrap">
-    <div id="message" class="updated"><p>Help us to improve our plugin. Your feedback will be appreciated. Feel free to post your <a href="http://www.webdev3000.com/about-me-3000-ver-1-6-released/#comment" target="_blank">comment</a></p></div>    
+    <div cass="wrap">
+    <?php /*<div id="message" class="updated"><p>Help us to improve our plugin. Your feedback will be appreciated. Feel free to post your <a href="http://www.webdev3000.com/about-me-3000-ver-1-6-released/#comment" target="_blank">comment</a></p></div>*/ ?>
+    <div style="float:left;background-color:white;padding: 10px 10px 10px 10px;margin-right:15px;border: 1px solid #ddd;height:200px;">
+		<div style="width:450px;height:130px;">
+			<h3>Donate</h3>
+			<em>If you like this plugin and find it useful, help keep this plugin free and actively developed by clicking the <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A3M9YMDAMMH6U" target="_blank"><strong>donate</strong></a> button.
+                Help us to improve our plugin. Your feedback will be appreciated. Feel free to post your <a href="http://www.webdev3000.com/about-me-3000-ver-1-6-released/#comment" target="_blank">comment</a></em>
+		</div>
+		<a target="_blank" title="Donate" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FBM9MC66FQYC2">
+		<img src="<?php echo plugins_url( 'donate.jpg', __FILE__ ); ?>" alt="Donate with Paypal">	</a>
+	</div>
+    <div style="clear:both;"></div>
     <?php    echo "<h2>" . __( 'About Me 3000', '' ) . "</h2>"; ?>
     <?php    echo "<h4>" . __( 'Settings', 'settings_h4' ) . "</h4>"; ?>    
     <form name="aboutme3000_form" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
@@ -204,7 +214,7 @@ function control_aboutme() {
                       <label for="aboutme-counter_on">Show subscribers</label><br />
                   <? }
                   else 
-                  if($i == 6 || $i == 10)   {?>
+                  if($i == 8 || $i == 12)   {?>
                       <small>(<?php echo $arr_am_urls[$i]?>)</small><br />
                   <?}
                   else { ?>
@@ -222,7 +232,7 @@ function control_aboutme() {
       <input class="button-primary" type="submit" name="Submit" value="<?php _e('Update Options', 'oscimp_trdom' ) ?>" />
     </p>
     </form>
-    </div> 
+    </div>
     <?php
 }
 function control_aboutme_() {
@@ -237,7 +247,7 @@ function init_aboutme3000(){
     register_widget_control('About Me 3000', 'control_aboutme_');  
 }
 function aboutme3000_admin_actions() {
-    add_options_page("About Me 3000", "About Me", 1, "About-Me", "control_aboutme");
+    add_options_page("About Me 3000", "About Me", 10, "About-Me", "control_aboutme");
 }
 
 add_action('plugins_loaded', 'init_aboutme3000');
