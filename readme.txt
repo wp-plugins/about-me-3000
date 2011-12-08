@@ -64,7 +64,7 @@ To configure:
 
 == Changelog ==
 
-= 2.1.0 =
+= 2.1.0 =  
 
 * Added custom picture support
 
