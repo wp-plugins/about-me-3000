@@ -8,7 +8,7 @@ Stable tag: 2.1.0
  
 Add an "About Me" widget to your sidebar. 
 
-== Description ==
+== Description == 
  
 This widget will show general information about you. 
 
@@ -37,7 +37,7 @@ You can even add your Feedburner ID, and the plugin will show the number of subs
 == Installation == 
 
 To install: 
- 
+
 
 1. Drop the 'about-me-3000' folder into your 'wp-content/plugins' folder 
  
