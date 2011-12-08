@@ -4,10 +4,12 @@ Plugin Name: About Me 3000
 Plugin URI: http://www.webdev3000.com/
 Description: Add an "About Me" widget to your sidebar.
 Author: Csaba Kissi
-Version: 2.0.0
+Version: 2.1.0
 Author URI: http://www.webdev3000.com/
 */
 
+
+require_once(ABSPATH . '/wp-admin/includes/image.php');
 
 $arr_am_titles = Array("Facebook","Friendfeed","Feedburner","Flickr","Delicious","MySpace","LinkedIn","Posterous","StumbleUpon","Technorati","Twitter","YouTube","Tumblr","Xing");
 $arr_am_urls   = Array("http://www.facebook.com/profile.php?id=","http://friendfeed.com/","http://feeds2.feedburner.com/","http://www.flickr.com/photos/","http://delicious.com/","http://www.myspace.com/","http://www.linkedin.com/in/","http://posterous.com/people/","http://YourID.stumbleupon.com","http://technorati.com/people/technorati/","http://twitter.com/","http://www.youtube.com/user/","http://YourID.tumblr.com","http://www.xing.com/profile/");
@@ -28,13 +30,14 @@ function widget_aboutme($args) {
        .aboutme * {border: 0px solid;}
        .aboutme img {padding:0px;}
     </style>
-    <?php 
+    <?php
     echo "<div class='aboutme'>";
     if(!empty($options['grav_x']))   $x = $options['grav_x'];
                                 else $x = 80;
     if(!empty($options['grav_y']))   $y = $options['grav_y'];
                                 else $y = 80;                           
-    if(!empty($options['email']) && $options['grav_on']) echo "<img width=\"".$x."\" height=\"".$y."\" style='float:".(($options["alignright_on"]=='1')?'right':'left').";".(($options["frame_on"]=='1')?'border:1px solid #999;':'')." margin:5px;' src='http://www.gravatar.com/avatar/".md5($options['email'])."?s=80'>";
+    if(!empty($options['email']) && $options['grav_on'] == 1) echo "<img width=\"".$x."\" height=\"".$y."\" style='float:".(($options["alignright_on"]=='1')?'right':'left').";".(($options["frame_on"]=='1')?'border:1px solid #999;':'')." margin:5px;' src='http://www.gravatar.com/avatar/".md5($options['email'])."?s=80'>";
+    if($options['grav_on'] == 2) echo "<img width=\"80\" height=\"80\" style='float:".(($options["alignright_on"]=='1')?'right':'left').";".(($options["frame_on"]=='1')?'border:1px solid #999;':'')." margin:5px;' src='".$options['image_url']."'>";
     echo $options['text'];
     echo "<div style='clear:both'></div>";
     echo "<div style='border-top: 1px solid #eee; padding-top:5px; position:relative; height:25px'>";
@@ -100,11 +103,53 @@ function control_aboutme() {
             $options[$tag_id] = $_POST["aboutme-".$tag_id];
             $options[$tag_id."_on"] = $_POST["aboutme-".$tag_id."_on"];
         }
+        if(!empty($_FILES['wp_custom_attachment']['name'])) {
+            // Setup the array of supported file types. In this case, it's just PDF.
+            $supported_types = array('image/jpeg','image/png','image/gif');
+
+            // Get the file type of the upload
+            $arr_file_type = wp_check_filetype(basename($_FILES['wp_custom_attachment']['name']));
+            $uploaded_type = $arr_file_type['type'];
+
+            // Check if the type is supported. If not, throw an error.
+            if(in_array($uploaded_type, $supported_types)) {
+
+                // Use the WordPress API to upload the file
+                $upload = wp_upload_bits($_FILES['wp_custom_attachment']['name'], null, file_get_contents($_FILES['wp_custom_attachment']['tmp_name']));
+
+                if(isset($upload['error']) && $upload['error'] != 0) {
+                    echo "<div id=\"err_message\" class=\"error\"><p>There was an error uploading your file. The error is: " . $upload['error']."</p></div>";
+                } else {
+                   //echo "<pre>"; print_r($upload); echo "</pre>";
+                   if(file_exists($options['image'])) @unlink($options['image']);
+                   if(file_exists(str_replace('-avat','',$options['image']))) @unlink(str_replace('-avat','',$options['image']));
+                   $thumb = @image_resize($upload['file'],80,80,true,'avat');
+                   if(is_object($thumb))  {
+                       echo "<div id=\"err_message\" class=\"error\"><p>There was an error resize the image</p></div>";
+                       $options['image'] = $upload['file'];
+                       $options['image_url'] = content_url().str_replace(WP_CONTENT_DIR,'',$upload['file']);
+                   }
+                   else  
+                   if(!file_exists($thumb)) echo "<div id=\"err_message\" class=\"error\"><p>There was an error resize the image</p></div>";
+                                       else {
+                                           $options['image'] = $thumb;
+                                           $options['image_url'] = content_url().str_replace(WP_CONTENT_DIR,'',$options['image']);
+                                       }
+                   //echo "<pre>"; print_r($thumb); echo "</pre>";
+
+                } // end if/else
+
+            } else {
+                echo "<div id=\"err_message\" class=\"error\"><p>The file type that you've uploaded is not an image</p></div>";
+            }
+        }
         update_option("widget_aboutme", $options);
+
     }    
     ?>
-    <div cass="wrap">
+    <div class="wrap">
     <?php /*<div id="message" class="updated"><p>Help us to improve our plugin. Your feedback will be appreciated. Feel free to post your <a href="http://www.webdev3000.com/about-me-3000-ver-1-6-released/#comment" target="_blank">comment</a></p></div>*/ ?>
+    <?php    echo "<h2>" . __( 'About Me 3000', '' ) . "</h2>"; ?>
     <div style="float:left;background-color:white;padding: 10px 10px 10px 10px;margin-right:15px;border: 1px solid #ddd;height:200px;">
 		<div style="width:450px;height:130px;">
 			<h3>Donate please...</h3>
@@ -115,9 +160,8 @@ function control_aboutme() {
 		<img src="<?php echo plugins_url( 'donate.jpg', __FILE__ ); ?>" alt="Donate with Paypal">	</a>
 	</div>
     <div style="clear:both;"></div>
-    <?php    echo "<h2>" . __( 'About Me 3000', '' ) . "</h2>"; ?>
     <?php    echo "<h4>" . __( 'Settings', 'settings_h4' ) . "</h4>"; ?>    
-    <form name="aboutme3000_form" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
+    <form name="aboutme3000_form" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>" enctype="multipart/form-data">
     <input type="hidden" name="sent" value="Y">
     <table class="form-table">
     <tr> 
@@ -140,13 +184,31 @@ function control_aboutme() {
         <td><input type="text" id="aboutme-gvaratar_x" name="aboutme-grav_x" value="<?php echo $options['grav_x'];?>" size="2" maxlength="2" /> x 
             <input type="text" id="aboutme-gvaratar_y" name="aboutme-grav_y" value="<?php echo $options['grav_y'];?>" size="2" maxlength="2" />
             <br />
-            <input class="checkbox" type="checkbox" id="aboutme-grav_on" name="aboutme-grav_on" value="1" <?php echo (($options["grav_on"]=='1')?' checked=1':''); ?> />
-            <label for="aboutme-grav_on">Show gravatar</label><br />
+            <?php /*<input class="checkbox" type="checkbox" id="aboutme-grav_on" name="aboutme-grav_on" value="1" <?php echo (($options["grav_on"]=='1')?' checked=1':''); ?> />
+            <label for="aboutme-grav_on">Show gravatar</label><br />*/ ?>
             <input class="checkbox" type="checkbox" id="aboutme-frame_on" name="aboutme-frame_on" value="1" <?php echo (($options["frame_on"]=='1')?' checked=1':''); ?> />
             <label for="aboutme-frame_on">Show frame for gravatar</label><br />
             <input class="checkbox" type="checkbox" id="aboutme-alignright_on" name="aboutme-alignright_on" value="1" <?php echo (($options["alignright_on"]=='1')?' checked=1':''); ?> />
             <label for="aboutme-alignright_on">Align gravatar to right</label><br />
         </td>    
+    </tr>
+    <tr valign="top">
+        <th scope="row">Upload Image<br/><small><em>(will be resized to 80x80px)</em></small></th>
+        <td>
+            <input type="file" id="wp_custom_attachment" name="wp_custom_attachment" value="" size="25"><br/>
+            <?php
+                //echo $options['image_url']."<br/>";
+                echo '<img src="'.$options['image_url'].'" alt="image" />';
+            ?>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">Image/Gravatar:</th>
+        <td>
+            <input type="radio" name="aboutme-grav_on" value="0" <?php echo (($options["grav_on"]=='0' || $options["grav_on"]=='' )?' checked=true':''); ?>> Show nothing<br />
+            <input type="radio" name="aboutme-grav_on" value="1" <?php echo (($options["grav_on"]=='1')?' checked=true':''); ?>> Show Gravatar<br />
+            <input type="radio" name="aboutme-grav_on" value="2" <?php echo (($options["grav_on"]=='2')?' checked=true':''); ?>> Show uploaded image
+        </td>
     </tr>
     <tr>
         <th><label for="aboutme-text">About you: </label></th>

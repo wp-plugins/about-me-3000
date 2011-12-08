@@ -4,7 +4,7 @@ Donate link: http://www.webdev3000.com/
 Tags: about me, widget, sidebar, biography, bio 
 Requires at least: 2.0.2
 Tested up to: 3.1.2
-Stable tag: 2.0.0
+Stable tag: 2.1.0
  
 Add an "About Me" widget to your sidebar. 
 
@@ -63,6 +63,10 @@ To configure:
  
 
 == Changelog ==
+
+= 2.1.0 =
+
+* Added custom picture support
 
 = 2.0.0 =
 
@@ -152,6 +156,10 @@ To configure:
 
 == Upgrade Notice ==
 
+= 2.1.0 =
+
+* Added custom picture support
+
 = 2.0.0 =
 
 * Code fixes
@@ -208,4 +216,4 @@ To configure:
 No questions 
  
 == Feedback == 
-http://www.webdev3000.com/
+http://www.webdev3000.com/about-me-3000-widget/
