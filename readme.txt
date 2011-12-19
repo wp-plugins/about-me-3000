@@ -10,7 +10,7 @@ Add an "About Me" widget to your sidebar.
 
 == Description == 
  
-This widget will show general information about you. 
+This widget will show general information [about you](http://www.webdev3000.com/about-me-3000-widget/).
 
 Add your email and small description, and your gravatar will be shown next to the summary. You can also show icons (URLs) of your social network accounts. 
 
