@@ -4,15 +4,15 @@ Plugin Name: About Me 3000
 Plugin URI: http://www.webdev3000.com/
 Description: Add an "About Me" widget to your sidebar.
 Author: Csaba Kissi
-Version: 2.1.0
+Version: 2.1.1
 Author URI: http://www.webdev3000.com/
 */
 
 
 require_once(ABSPATH . '/wp-admin/includes/image.php');
 
-$arr_am_titles = Array("Facebook","Friendfeed","Feedburner","Flickr","Delicious","MySpace","LinkedIn","Posterous","StumbleUpon","Technorati","Twitter","YouTube","Tumblr","Xing");
-$arr_am_urls   = Array("http://www.facebook.com/profile.php?id=","http://friendfeed.com/","http://feeds2.feedburner.com/","http://www.flickr.com/photos/","http://delicious.com/","http://www.myspace.com/","http://www.linkedin.com/in/","http://posterous.com/people/","http://YourID.stumbleupon.com","http://technorati.com/people/technorati/","http://twitter.com/","http://www.youtube.com/user/","http://YourID.tumblr.com","http://www.xing.com/profile/");
+$arr_am_titles = Array("Facebook","Friendfeed","Feedburner","Flickr","Delicious","MySpace","LinkedIn","Posterous","StumbleUpon","Technorati","Twitter","YouTube","Tumblr","Xing","Pinterest");
+$arr_am_urls   = Array("http://www.facebook.com/profile.php?id=","http://friendfeed.com/","http://feeds2.feedburner.com/","http://www.flickr.com/photos/","http://delicious.com/","http://www.myspace.com/","http://www.linkedin.com/in/","http://posterous.com/people/","http://YourID.stumbleupon.com","http://technorati.com/people/technorati/","http://twitter.com/","http://www.youtube.com/user/","http://YourID.tumblr.com","http://www.xing.com/profile/",'http://www.pinterest.com/');
 
 // Shows widget
 function widget_aboutme($args) {

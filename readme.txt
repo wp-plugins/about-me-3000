@@ -4,7 +4,7 @@ Donate link: http://www.webdev3000.com/
 Tags: about me, widget, sidebar, biography, bio 
 Requires at least: 2.0.2
 Tested up to: 3.1.2
-Stable tag: 2.1.0
+Stable tag: 2.1.1
  
 Add an "About Me" widget to your sidebar. 
 
@@ -30,8 +30,11 @@ Currently, the following social networks are supported:
 * YouTube
 * Tumblr
 * Xing
+* Pinterest
 
-You can even add your Feedburner ID, and the plugin will show the number of subscribers, next to a standard Feedburner image. 
+You can even add your Feedburner ID, and the plugin will show the number of subscribers, next to a standard Feedburner image.
+
+For more information please visit the home of the [About Me 3000 plugin](http://www.webdev3000.com/about-me-3000-widget/)
  
  
 == Installation == 
@@ -60,11 +63,16 @@ To configure:
 
 1. Widget appearance 
 2. Configuration interface
- 
+
+More screenshots and live sample you can see [here](http://www.webdev3000.com/about-me-3000-widget/)
 
 == Changelog ==
 
-= 2.1.0 =  
+= 2.1.1 =
+
+* Added Pinterest profile
+
+= 2.1.0 =
 
 * Added custom picture support
 
@@ -155,6 +163,10 @@ To configure:
 * initial release 
 
 == Upgrade Notice ==
+
+= 2.1.1 =
+
+* Added Pinterest profile
 
 = 2.1.0 =
 
