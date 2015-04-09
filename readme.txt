@@ -3,7 +3,7 @@ Contributors: Csaba Kissi
 Author URI: http://www.wpspeedster.com/
 Donate Link: http://www.wpspeedster.com/
 Plugin URL: http://www.wpspeedster.com/blog/about-me-3000-widget/
-Tags: about me, widget, sidebar, biography, bio 
+Tags: about,about me,about us,widget,sidebar,biography,bio
 Requires at least: 3.8
 Tested up to: 4.1.1
 Stable tag: 2.2.0
