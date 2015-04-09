@@ -1,16 +1,20 @@
 === About Me 3000 widget === 
 Contributors: Csaba Kissi 
-Donate link: http://www.webdev3000.com/ 
+Author URI: http://www.wpspeedster.com/
+Donate Link: http://www.wpspeedster.com/
+Plugin URL: http://www.wpspeedster.com/blog/about-me-3000-widget/
 Tags: about me, widget, sidebar, biography, bio 
-Requires at least: 2.0.2
-Tested up to: 3.1.2
-Stable tag: 2.1.1
+Requires at least: 3.8
+Tested up to: 4.1.1
+Stable tag: 2.2.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
 Add an "About Me" widget to your sidebar. 
 
 == Description == 
  
-This widget will show general information [about you](http://www.webdev3000.com/about-me-3000-widget/).
+This widget will show general information [about you](http://www.wpspeedster.com/blog/about-me-3000-widget/).
 
 Add your email and small description, and your gravatar will be shown next to the summary. You can also show icons (URLs) of your social network accounts. 
 
@@ -21,20 +25,23 @@ Currently, the following social networks are supported:
 * Flickr
 * Delicious
 * Feedburner
+* Google Plus
 * MySpace
 * LinkedIn
+* Pinterest
 * Posterous
+* Skype
 * StumbleUpon
 * Technorati 
 * Twitter
 * YouTube
 * Tumblr
 * Xing
-* Pinterest
+
 
 You can even add your Feedburner ID, and the plugin will show the number of subscribers, next to a standard Feedburner image.
 
-For more information please visit the home of the [About Me 3000 plugin](http://www.webdev3000.com/about-me-3000-widget/)
+For more information please visit the home of the [About Me 3000 plugin](http://www.wpspeedster.com/blog/about-me-3000-widget/)
  
  
 == Installation == 
@@ -54,9 +61,10 @@ To configure:
 1. Go to Appearance: Widgets 
 2. Move (drag and drop) the widget to your desired location in the active sidebar. 
 3. Click on the config button (small triangle) for the "About Me 3000" widget 
-4. Enter the title you want visitors to see on the sidebar 
+4. Enter the title you want visitors to see on the sidebar
+5. Go to Settings >> About Me
 5. Enter the email address registered with your gravatar (to get your gravatar go to: www.gravatar.com, multiple addresses are supported) 
-6. Enable and enter your ID for every social network you want to become visible in your "About Me 3000" widget. 
+6. Enable and enter your URL for every social network you want to become visible in your "About Me 3000" widget.
      
 
 == Screenshots == 
@@ -64,9 +72,18 @@ To configure:
 1. Widget appearance 
 2. Configuration interface
 
-More screenshots and live sample you can see [here](http://www.webdev3000.com/about-me-3000-widget/)
+More screenshots and live sample you can see [here](http://www.wpspeedster.com/blog/about-me-3000-widget/)
 
 == Changelog ==
+
+= 2.2.0 =
+
+* Added Skype profile
+* Added Google Plus profile
+* Fixed bug with rich edit
+* Fixed unwanted margin for email icon
+* Email now encoded on PHP side. No JS needed now.
+* Changed links structure, now you have to add full links. No modification by plugin
 
 = 2.1.1 =
 
@@ -228,4 +245,4 @@ More screenshots and live sample you can see [here](http://www.webdev3000.com/ab
 No questions 
  
 == Feedback == 
-http://www.webdev3000.com/about-me-3000-widget/
+http://www.wpspeedster.com/blog/about-me-3000-widget/
