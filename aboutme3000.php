@@ -4,7 +4,7 @@ Plugin Name: About Me 3000
 Plugin URI: http://www.wpspeedster.com/blog/about-me-3000-widget/
 Description: Add an "About Me" widget to your sidebar.
 Author: Csaba Kissi
-Version: 2.2.0
+Version: 2.2.1
 Author URI: http://www.wpspeedster.com/
 */
 
@@ -340,7 +340,7 @@ function aboutme3000_admin_actions()
 
 function aboutme3000_remove_media_controls()
 {
-    remove_action('media_buttons', 'media_buttons');
+    //if(is_page( 'About-Me' )) remove_action('media_buttons', 'media_buttons');
 }
 
 function aboutme3000_show_message()
