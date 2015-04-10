@@ -6,7 +6,7 @@ Plugin URL: http://www.wpspeedster.com/blog/about-me-3000-widget/
 Tags: about,about me,about us,widget,sidebar,biography,bio
 Requires at least: 3.8
 Tested up to: 4.1.1
-Stable tag: 2.2.1
+Stable tag: 2.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
@@ -25,6 +25,7 @@ Currently, the following social networks are supported:
 * Flickr
 * Delicious
 * Feedburner
+* GitHub
 * Google Plus
 * MySpace
 * LinkedIn
@@ -75,6 +76,11 @@ To configure:
 More screenshots and live sample you can see [here](http://www.wpspeedster.com/blog/about-me-3000-widget/)
 
 == Changelog ==
+
+= 2.2.2 =
+
+* Added GitHub button
+* Removed media button from rich text editor
 
 = 2.2.1 =
 

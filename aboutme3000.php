@@ -4,14 +4,14 @@ Plugin Name: About Me 3000
 Plugin URI: http://www.wpspeedster.com/blog/about-me-3000-widget/
 Description: Add an "About Me" widget to your sidebar.
 Author: Csaba Kissi
-Version: 2.2.1
+Version: 2.2.2
 Author URI: http://www.wpspeedster.com/
 */
 
 
 require_once(ABSPATH . '/wp-admin/includes/image.php');
 
-$arr_am_titles = Array("Facebook", "Friendfeed", "Feedburner", "Flickr", "Delicious","Google Plus","MySpace", "LinkedIn", "Pinterest", "Posterous", "Skype", "StumbleUpon", "Technorati", "Twitter", "YouTube", "Tumblr", "Xing" );
+$arr_am_titles = Array("Facebook", "Friendfeed", "Feedburner", "Flickr", "Delicious","GitHub","Google Plus","MySpace", "LinkedIn", "Pinterest", "Posterous", "Skype", "StumbleUpon", "Technorati", "Twitter", "YouTube", "Tumblr", "Xing" );
 $arr_am_urls = Array("http://www.facebook.com/profile.php?id=", "http://friendfeed.com/", "http://feeds2.feedburner.com/", "http://www.flickr.com/photos/", "http://delicious.com/", "http://www.myspace.com/", "http://www.linkedin.com/in/", "http://posterous.com/people/", "http://YourID.stumbleupon.com", "http://technorati.com/people/technorati/", "http://twitter.com/", "http://www.youtube.com/user/", "http://YourID.tumblr.com", "http://www.xing.com/profile/", 'http://www.pinterest.com/');
 
 // Shows widget
@@ -340,7 +340,7 @@ function aboutme3000_admin_actions()
 
 function aboutme3000_remove_media_controls()
 {
-    //if(is_page( 'About-Me' )) remove_action('media_buttons', 'media_buttons');
+    if(isset($_GET['page']) && $_GET['page'] == 'About-Me') remove_action('media_buttons', 'media_buttons');
 }
 
 function aboutme3000_show_message()
