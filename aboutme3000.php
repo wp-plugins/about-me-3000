@@ -71,13 +71,13 @@ function widget_aboutme($args)
             var string3 = "<?php echo $arr_email[1]?>";
             var string4 = string1 + string2 + string3;
             document.write("<a style='padding:2px' href='" + "mail" + "to:" + string1 + string2 + string3 + "' target='_blank'>");
-            document.write("<img src='<?php echo get_bloginfo('url')?>/wp-content/plugins/about-me-3000/email.png' border='0'>");
+            document.write("<img src='<?php echo get_bloginfo('wpurl')?>/wp-content/plugins/about-me-3000/email.png' border='0'>");
             document.write("</a>");
             //-->
         </script>
         <?php */
-        //echo "<a style='padding:2px' href='mailto:".$options['email']."'><img src='".get_bloginfo('url')."/wp-content/plugins/about-me-3000/email.png' border='0'></a>";
-        $label = "<img src='".get_bloginfo('url')."/wp-content/plugins/about-me-3000/email.png' border='0'>";
+        //echo "<a style='padding:2px' href='mailto:".$options['email']."'><img src='".get_bloginfo('wpurl')."/wp-content/plugins/about-me-3000/email.png' border='0'></a>";
+        $label = "<img src='".get_bloginfo('wpurl')."/wp-content/plugins/about-me-3000/email.png' border='0'>";
         echo encode_mailto($options['email'],$label);
     }
     echo "</div>";
